@@ -54,11 +54,11 @@ public class DriveDrainSubsytem extends Subsystem {
         addChild("LeftFrontMotor",leftFrontMotor);
         leftFrontMotor.setInverted(false);
         
-        leftRearMotor = new Spark(2);
+        leftRearMotor = new Spark(1);
         addChild("LeftRearMotor",leftRearMotor);
         leftRearMotor.setInverted(false);
         
-        rightFrontMotor = new Spark(1);
+        rightFrontMotor = new Spark(2);
         addChild("RightFrontMotor",rightFrontMotor);
         rightFrontMotor.setInverted(false);
         
