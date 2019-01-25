@@ -11,6 +11,8 @@
 
 package org.usfirst.frc2450.ShawMedallion.commands;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc2450.ShawMedallion.Robot;
 
 /**
@@ -44,6 +46,8 @@ public class DriveWithJoysticks extends Command {
     @Override
     protected void execute() {
         Robot.driveDrainSubsytem.takeJoystickInputs(Robot.oi.leftJoystick, Robot.oi.rightJoystick);
+        SmartDashboard.putNumber("Gyro Value", Robot.gyroSPI.getAngle());
+        SmartDashboard.putBoolean("Gyro Calibrating", Robot.gyroSPI.isCalibrating());
     }
 
     // Make this return true when this Command no longer needs to run execute()
