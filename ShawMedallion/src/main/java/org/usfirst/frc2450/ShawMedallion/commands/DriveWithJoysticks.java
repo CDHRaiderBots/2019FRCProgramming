@@ -12,6 +12,7 @@
 package org.usfirst.frc2450.ShawMedallion.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.MotorSafety;
 
 import org.usfirst.frc2450.ShawMedallion.Robot;
 import com.analog.adis16448.frc.ADIS16448_IMU;
@@ -50,8 +51,8 @@ public class DriveWithJoysticks extends Command {
     protected void execute() {
         Robot.driveDrainSubsytem.takeJoystickInputs(Robot.oi.leftJoystick, Robot.oi.rightJoystick);
 
-        SmartDashboard.putNumber("Gyro Value", Robot.gyroSPI.getAngle());
-        SmartDashboard.putBoolean("Gyro Calibrating", Robot.gyroSPI.isCalibrating());
+        //SmartDashboard.putNumber("Gyro Value", Robot.gyroSPI.getAngle());
+        //SmartDashboard.putBoolean("Gyro Calibrating", Robot.gyroSPI.isCalibrating());
         
     SmartDashboard.putNumber("Gyro-X", imu.getAngleX());
     SmartDashboard.putNumber("Gyro-Y", imu.getAngleY());
