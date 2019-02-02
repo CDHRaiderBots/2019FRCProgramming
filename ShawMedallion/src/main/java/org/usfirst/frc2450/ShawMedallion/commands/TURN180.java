@@ -46,6 +46,7 @@ public class TURN180 extends Command {
         // Robot.driveDrainSubsytem.rightRearMotor.set(0.2);
 
        // Robot.gyroSPI.reset();
+       Robot.imu.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -57,8 +58,13 @@ public class TURN180 extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return true;
-  
+        double zAngle = Robot.imu.getAngleZ();
+        if (zAngle >= 180) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     
 
