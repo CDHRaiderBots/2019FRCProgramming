@@ -41,8 +41,11 @@ public class TargetStrafeRight extends Command {
     }
 
     // Called repeatedly when this Command is scheduled to run
+    double strafe = 0;
+    double skew = 0;
     @Override
     protected void execute() {
+        Robot.driveDrainSubsytem.getRobotDrive().driveCartesian(0, strafe, skew);
     }
 
     // Make this return true when this Command no longer needs to run execute()
