@@ -45,7 +45,6 @@ public class TargetAlign extends Command {
     @Override
     protected void execute() {
         Robot.driveDrainSubsytem.getRobotDrive().driveCartesian(0, getStrafeRate(), getRotateRate());
-        // Robot.driveDrainSubsytem.getRobotDrive().driveCartesian(0, strafe, skew);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -75,10 +74,7 @@ public class TargetAlign extends Command {
                 return -0.3;
             }
             return speed;
-            
-
         }
-
         return -0;
     }
 
