@@ -121,6 +121,9 @@ public class DriveDrainSubsytem extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+    public void moveForward(){
+        robotDrive.driveCartesian(0.2, 0 ,0);
+    }
 
     public void moveForward()
     {

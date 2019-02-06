@@ -61,7 +61,7 @@ public class Ultrasonic extends Subsystem {
     @Override
     public void periodic() {
         // Put code here to be run every loop
-        SmartDashboard.putNumber("ultrasonicValue", VoltToDistance(anologUltrasonic.getVoltage()));
+        SmartDashboard.putNumber("ultrasonicValue", GetDistance());
         SmartDashboard.putNumber("ultrasonicVolts", anologUltrasonic.getVoltage());
 
     }
@@ -75,8 +75,13 @@ public class Ultrasonic extends Subsystem {
     // here. Call these from Commands.
 
   public double VoltToDistance(double Volts)  {
-      return (Volts / V5mm) * 5;
-      
+      return (Volts / V5mm) * 5;    
+  } 
+
+  public double GetDistance(){
+    double Volts = anologUltrasonic.getVoltage();
+    double Distance = VoltToDistance(Volts);
+    return Distance;
   }
 }
 
