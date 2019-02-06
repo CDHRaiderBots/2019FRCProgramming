@@ -125,16 +125,6 @@ public class DriveDrainSubsytem extends Subsystem {
         robotDrive.driveCartesian(0.2, 0 ,0);
     }
 
-    public void moveForward()
-    {
-        // Robot.driveDrainSubsytem.leftFrontMotor.set(0.1);
-        // Robot.driveDrainSubsytem.rightFrontMotor.set(-0.1);
-        // Robot.driveDrainSubsytem.leftRearMotor.set(-0.1);
-        // Robot.driveDrainSubsytem.rightRearMotor.set(0.1);
-        
-        robotDrive.driveCartesian(0,0,.3);
-    }
-
     public void stopMotors()
     {
         // Robot.driveDrainSubsytem.leftFrontMotor.set(0);
