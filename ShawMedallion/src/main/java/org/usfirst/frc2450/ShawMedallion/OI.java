@@ -81,6 +81,12 @@ public class OI {
         SmartDashboard.putData("PistonDown", new PistonDown());
         SmartDashboard.putData("TurnWithAngle", new TurnWithAngle(90));
         SmartDashboard.putData("ApproachTarget", new ApproachTarget());
+        SmartDashboard.putData("LineUpRight", new LineUpRight());
+        SmartDashboard.putData("TargetAlign", new TargetAlign());
+        SmartDashboard.putData("TargetSeek", new TargetSeek());
+
+        SmartDashboard.putData("TurnWithAngle", new TurnWithAngle(90));
+        SmartDashboard.putData("ApproachTarget", new ApproachTarget());
         SmartDashboard.putData("RunElevator", new RunElevator(.3));
         SmartDashboard.putData("ElevatorToPosition", new ElevatorToPosition());
         

@@ -65,7 +65,7 @@ public class LimelightSubsystem extends Subsystem {
 		SmartDashboard.putNumber("Ty", LimelightSubsystem.getTy());
 		SmartDashboard.putNumber("Ta", LimelightSubsystem.getTa());
 		SmartDashboard.putNumber("Tl", LimelightSubsystem.getTl());
-        SmartDashboard.putNumber("Ts", LimelightSubsystem.getTs());
+		SmartDashboard.putNumber("Ts", LimelightSubsystem.getTs());
 
 
 
@@ -185,6 +185,7 @@ public class LimelightSubsystem extends Subsystem {
 	 */
 	public static void setPipeline(int number) {
 		getValue("pipeline").setNumber(number);
+
 	}
 
 	/**
@@ -202,5 +203,28 @@ public class LimelightSubsystem extends Subsystem {
 		return table.getTable("limelight").getEntry(key);
 	}
 
+	public static double getTShort()
+	{
+		return getValue("tshort").getDouble(0.00);
+	}
+
+	public static double getTLong()
+	{
+		 return getValue("tlong").getDouble(0.00);
+	}
+
+	public static double getTHor()
+	{
+		return getValue("thor").getDouble(0.00);
+	}
+
+	public static double getTVert()
+	{
+		return getValue("tvert").getDouble(0.00);
+	}
+	
+	
+
+	
 }
 
