@@ -152,5 +152,8 @@ public class DriveDrainSubsytem extends Subsystem {
     {
         robotDrive.driveCartesian(0,0, turnRate);
     }
+    public void MoveForwardProportional(double driveProportion){
+        robotDrive.driveCartesian(driveProportion, 0, 0);
+    }
 }
 
