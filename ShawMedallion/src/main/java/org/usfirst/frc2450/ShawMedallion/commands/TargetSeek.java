@@ -41,38 +41,39 @@ public class TargetSeek extends Command {
     protected void initialize() {
     }
 
-    double Kp = 0.1f;
-    double min_command = 0.05f;
+    double Kp = 0.03d;
+    double min_command = 0.05d;
+    double i = 0;
     
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-
+        i += 0.005;
         double heading_error = -LimelightSubsystem.getTx();
-        double steering_adjust = 0.0f;
+        double steering_adjust = 0.0d;
         if (LimelightSubsystem.getTx() > 1.0)
         {
-                steering_adjust = Kp*heading_error - min_command;
+                steering_adjust = -Kp*heading_error - min_command;
         }
-        else if (LimelightSubsystem.getTx() < 1.0)
+        else if (LimelightSubsystem.getTx() < -1.0)
         {
-                steering_adjust = Kp*heading_error + min_command;
+                steering_adjust = -Kp*heading_error + min_command;
         }
       
-        //left_command += steering_adjust;
-        //right_command -= steering_adjust;
+        Robot.driveDrainSubsytem.getRobotDrive().driveCartesian(0, 0, steering_adjust+i);
 
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return false;
+        return(LimelightSubsystem.getTx() > -1 && LimelightSubsystem.getTx() < 1);
     }
 
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        Robot.driveDrainSubsytem.getRobotDrive().driveCartesian(0, 0, 0);
     }
 
     // Called when another command which requires one or more of the same
