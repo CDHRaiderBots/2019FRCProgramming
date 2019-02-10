@@ -44,7 +44,7 @@ public class PistonUp extends Command {
     @Override
     protected void execute() {
         Robot.climbSubsystem.shootUp();
-        Robot.climbSubsystem.testMotor();
+       
     }
 
     // Make this return true when this Command no longer needs to run execute()
