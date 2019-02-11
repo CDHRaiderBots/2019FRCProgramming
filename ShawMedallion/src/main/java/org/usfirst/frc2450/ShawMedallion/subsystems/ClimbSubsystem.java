@@ -67,11 +67,11 @@ public class ClimbSubsystem extends Subsystem {
     
     }
 
-    public void testMotor()
+    public void setClimbMotorSpeed(double MotorSpeed)
     {
-        climbMotor.set(0.2);
+        climbMotor.set(MotorSpeed);
     }
-    public void testMotor1()
+    public void StopClimbMotor()
     {
         climbMotor.set(0.0);
     }
