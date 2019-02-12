@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.*;
 import com.analog.adis16448.frc.ADIS16448_IMU;
+import edu.wpi.first.wpilibj.XboxController;
 
 
 
@@ -79,12 +80,13 @@ public class OI {
         SmartDashboard.putData("DriveWithJoysticks", new DriveWithJoysticks());
         SmartDashboard.putData("PistonUp", new PistonUp());
         SmartDashboard.putData("PistonDown", new PistonDown());
-        SmartDashboard.putData("TurnWithAngle", new TurnWithAngle());
+       // SmartDashboard.putData("TurnWithAngle", new TurnWithAngle());
         SmartDashboard.putData("ApproachTarget", new ApproachTarget());
         SmartDashboard.putData("LineUpRight", new LineUpRight());
         SmartDashboard.putData("TargetAlign", new TargetAlign());
+        SmartDashboard.putData("ElevatorToPosition", new ElevatorToPosition());
         SmartDashboard.putData("TargetSeek", new TargetSeek());
-        SmartDashboard.putData("RunElevator", new RunElevator());
+       // SmartDashboard.putData("RunElevator", new RunElevator());
         SmartDashboard.putData("EleUP", new EleUP());
         SmartDashboard.putData("EleDown", new EleDown());
         SmartDashboard.putData("MoveBananaArms", new MoveBananaArms());
