@@ -19,8 +19,8 @@ import org.usfirst.frc2450.ShawMedallion.Robot;
  *
  */
 public class ElevatorMid extends Command {
-    double P = .3;
-    double I = .005;
+    double P = .02;
+    double I = .01;
     double error = 0;
     double integral = 0;
     double setPoint = 35;
@@ -61,17 +61,24 @@ public class ElevatorMid extends Command {
         if (ElevatorSpeed > 1){
             ElevatorSpeed = 1;
         }
-    }
+        Robot.elevatorSubsystem.setElevatorSpeed(ElevatorSpeed);
+        }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
+       
+        if (Robot.elevatorSubsystem.getEncoder().getDistance() >= setPoint){
+            return true;
+        }
         return false;
     }
 
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        Robot.elevatorSubsystem.setElevatorSpeed(0);
+      
     }
 
     // Called when another command which requires one or more of the same

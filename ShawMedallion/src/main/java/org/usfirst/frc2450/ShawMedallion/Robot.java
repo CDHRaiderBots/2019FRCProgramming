@@ -22,7 +22,7 @@ import org.usfirst.frc2450.ShawMedallion.commands.*;
 import org.usfirst.frc2450.ShawMedallion.subsystems.*;
 import org.usfirst.frc2450.ShawMedallion.subsystems.ADXRS453Gyro;
 import com.analog.adis16448.frc.ADIS16448_IMU;
-
+//import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 
 /**
@@ -33,6 +33,9 @@ import com.analog.adis16448.frc.ADIS16448_IMU;
  * the project.
  */
 public class Robot extends TimedRobot {
+
+
+    //VictorSPX myvictor = new VictorSPX(5);
 
     Command autonomousCommand;
     SendableChooser<Command> chooser = new SendableChooser<>();
