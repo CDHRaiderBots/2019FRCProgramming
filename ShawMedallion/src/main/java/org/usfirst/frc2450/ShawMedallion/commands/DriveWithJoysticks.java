@@ -14,8 +14,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.MotorSafety;
 
+import org.usfirst.frc2450.ShawMedallion.OI;
 import org.usfirst.frc2450.ShawMedallion.Robot;
 import com.analog.adis16448.frc.ADIS16448_IMU;
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 
 /**
  *
@@ -44,16 +47,17 @@ public class DriveWithJoysticks extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.driveDrainSubsytem.takeJoystickInputs(Robot.oi.leftJoystick, Robot.oi.rightJoystick);
+         Robot.driveDrainSubsytem.takeXboxJoystickInputs(Robot.oi.getXboxController());
 
         //SmartDashboard.putNumber("Gyro Value", Robot.gyroSPI.getAngle());
         //SmartDashboard.putBoolean("Gyro Calibrating", Robot.gyroSPI.isCalibrating());
-        
+    
      SmartDashboard.putNumber("Gyro-X", Robot.imu.getAngleX());
      SmartDashboard.putNumber("Gyro-Y", Robot.imu.getAngleY());
      SmartDashboard.putNumber("Gyro-Z", Robot.imu.getAngleZ());
@@ -88,4 +92,6 @@ public class DriveWithJoysticks extends Command {
     @Override
     protected void interrupted() {
     }
+
+
 }

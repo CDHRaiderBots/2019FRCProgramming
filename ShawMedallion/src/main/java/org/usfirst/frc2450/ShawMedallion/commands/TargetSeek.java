@@ -12,7 +12,6 @@
 package org.usfirst.frc2450.ShawMedallion.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2450.ShawMedallion.Robot;
-import org.usfirst.frc2450.ShawMedallion.subsystems.LimelightSubsystem;
 
 /**
  *
@@ -41,39 +40,20 @@ public class TargetSeek extends Command {
     protected void initialize() {
     }
 
-    double Kp = 0.03d;
-    double min_command = 0.05d;
-    double i = 0;
-    
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        i += 0.005;
-        double heading_error = -LimelightSubsystem.getTx();
-        double steering_adjust = 0.0d;
-        if (LimelightSubsystem.getTx() > 1.0)
-        {
-                steering_adjust = -Kp*heading_error - min_command;
-        }
-        else if (LimelightSubsystem.getTx() < -1.0)
-        {
-                steering_adjust = -Kp*heading_error + min_command;
-        }
-      
-        Robot.driveDrainSubsytem.getRobotDrive().driveCartesian(0, 0, steering_adjust+i);
-
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return(LimelightSubsystem.getTx() > -1 && LimelightSubsystem.getTx() < 1);
+        return false;
     }
 
     // Called once after isFinished returns true
     @Override
     protected void end() {
-        Robot.driveDrainSubsytem.getRobotDrive().driveCartesian(0, 0, 0);
     }
 
     // Called when another command which requires one or more of the same
