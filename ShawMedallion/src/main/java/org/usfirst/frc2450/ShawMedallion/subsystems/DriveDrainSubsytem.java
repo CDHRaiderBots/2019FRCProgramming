@@ -88,12 +88,11 @@ public class DriveDrainSubsytem extends Subsystem {
 
     
     }
-    public void takeJoystickInputs(Joystick left, Joystick right)
-    {   
-        robotDrive.driveCartesian(left.getX(), -left.getY(), left.getZ());
-        
 
-    
+
+    public void takeXboxJoystickInputs(XboxController xboxcontroller)
+    {   
+        robotDrive.driveCartesian(xboxcontroller.getX(Hand.kLeft), -xboxcontroller.getY(Hand.kLeft), xboxcontroller.getX(Hand.kRight));   
     }
 
 
@@ -157,5 +156,7 @@ public class DriveDrainSubsytem extends Subsystem {
     public void MoveForwardProportional(double driveProportion){
         robotDrive.driveCartesian(driveProportion, 0, 0);
     }
+
+
 }
 

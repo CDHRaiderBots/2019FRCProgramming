@@ -19,7 +19,7 @@ import org.usfirst.frc2450.ShawMedallion.Robot;
  *
  */
 public class ElevatorMid extends Command {
-    double P = .015;
+    double P = .02;
     double I = .01;
     double error = 0;
     double integral = 0;
