@@ -13,7 +13,7 @@ Children:
             default: Spark
             name: Type
             validators: null
-            value: Spark
+            value: PWMVictorSPX
           Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
             choices: &id002 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
               '11', '12', '13', '14', '15', '16', '17', '18', '19']
@@ -32,7 +32,7 @@ Children:
             default: Spark
             name: Type
             validators: null
-            value: Spark
+            value: PWMVictorSPX
           Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
             choices: *id002
             default: '0'
@@ -50,7 +50,7 @@ Children:
             default: Spark
             name: Type
             validators: null
-            value: Spark
+            value: PWMVictorSPX
           Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
             choices: *id002
             default: '0'
@@ -68,7 +68,7 @@ Children:
             default: Spark
             name: Type
             validators: null
-            value: Spark
+            value: PWMVictorSPX
           Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
             choices: *id002
             default: '0'
@@ -148,7 +148,7 @@ Children:
           default: Spark
           name: Type
           validators: null
-          value: Spark
+          value: PWMVictorSPX
         Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
           choices: *id002
           default: '0'
@@ -358,7 +358,7 @@ Children:
           default: Spark
           name: Type
           validators: null
-          value: Spark
+          value: PWMVictorSPX
         Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
           choices: *id002
           default: '0'
@@ -1897,10 +1897,10 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: ElevatorSubsystem}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id084 []
+        default: []
         name: Parameter presets
         validators: null
-        value: *id084
+        value: []
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
@@ -1926,11 +1926,12 @@ Properties:
     name: Export Subsystems, validators: null, value: true}
   Simulation World File: !!robotbuilder.data.properties.StringProperty {default: /usr/share/frcsim/worlds/GearsBotDemo.world,
     name: Simulation World File, validators: null, value: /usr/share/frcsim/worlds/GearsBotDemo.world}
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Robotics3\',
-    extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\RaiderBot\'}
-  Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Robotics3\FRCProjects',
-    extension: null, folder: true, name: Export Directory, validators: null, value: 'C:\Users\Team
-      2450\Documents\GitHub\2019FRCProgramming'}
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Team
+      2450\', extension: null, folder: true, name: Wiring file location, validators: null,
+    value: 'C:\Users\RaiderBot\'}
+  Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Team
+      2450\FRCProjects', extension: null, folder: true, name: Export Directory, validators: null,
+    value: 'C:\Users\Team 2450\Documents\GitHub\2019FRCProgramming'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}
 Base: Robot
