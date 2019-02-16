@@ -12,6 +12,7 @@
 package org.usfirst.frc2450.ShawMedallion.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2450.ShawMedallion.Robot;
+import org.usfirst.frc2450.ShawMedallion.subsystems.LimelightSubsystem;
 
 /**
  *
@@ -43,6 +44,7 @@ public class TargetAlignLeft extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        Robot.driveDrainSubsytem.getRobotDrive().driveCartesian(0, getStrafeRate(), getRotateRate());
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -60,5 +62,32 @@ public class TargetAlignLeft extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+    }
+    public double getStrafeRate()
+    {
+        if(LimelightSubsystem.getTs() < -10)
+        {
+            double speed = LimelightSubsystem.getTs()/90d;
+            if(speed < 0.3)
+            {
+                return 0.3;
+            }
+            return speed;
+        }
+        return -0;
+    }
+
+    public double getRotateRate()
+    {
+        if(LimelightSubsystem.getTx() > 0)
+        {
+            double speed = LimelightSubsystem.getTx()/27d;
+            if(speed > -0.3)
+            {
+                return -0.3;
+            }
+            return speed;
+        }
+        return 0;
     }
 }
