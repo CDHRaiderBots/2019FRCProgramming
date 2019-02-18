@@ -57,9 +57,12 @@ public class ElevatorDrop extends Command {
         if (ElevatorSpeed > 1){
             ElevatorSpeed = 1;
         }
+        if(error < 0 && ElevatorSpeed > 0.5)
+        {
+            ElevatorSpeed = 0.5;
+        }
         Robot.elevatorSubsystem.setElevatorSpeed(ElevatorSpeed);
     }
-
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {

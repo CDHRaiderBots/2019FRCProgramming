@@ -60,6 +60,10 @@ public class ElevatorLow extends Command {
         if (ElevatorSpeed > 1){
             ElevatorSpeed = 1;
         }
+        if(error < 0 && ElevatorSpeed > 0.5)
+        {
+            ElevatorSpeed = 0.5;
+        }
         Robot.elevatorSubsystem.setElevatorSpeed(ElevatorSpeed);
     }
 
