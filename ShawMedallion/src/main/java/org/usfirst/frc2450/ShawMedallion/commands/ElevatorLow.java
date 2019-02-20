@@ -70,7 +70,7 @@ public class ElevatorLow extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        if (Robot.elevatorSubsystem.getEncoder().getDistance() >= setPoint){
+        if (Robot.elevatorSubsystem.getEncoder().getDistance() >= setPoint + 0.2 &&Robot.elevatorSubsystem.getEncoder().getDistance() <= setPoint - 0.2){
             return true;
         }
         return false;
