@@ -50,7 +50,7 @@ public class TargetAlignLeft extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return (LimelightSubsystem.getTs() > -3 && LimelightSubsystem.getTx() < 2 && LimelightSubsystem.getTx() > -2);
+        return (LimelightSubsystem.getTs() > -5 && LimelightSubsystem.getTx() < 3 && LimelightSubsystem.getTx() > -3);
     }
 
     // Called once after isFinished returns true
@@ -65,12 +65,12 @@ public class TargetAlignLeft extends Command {
     }
     public double getStrafeRate()
     {
-        if(LimelightSubsystem.getTs() < -3)
+        if(LimelightSubsystem.getTs() < -5)
         {
             double speed = LimelightSubsystem.getTs()/90d;
-            if(speed < -0.35)
+            if(speed < -0.3)
             {
-                return 0.35;
+                return 0.3;
             }
             return -speed;
         }
@@ -82,9 +82,9 @@ public class TargetAlignLeft extends Command {
         if(LimelightSubsystem.getTx() < 0)
         {
             double speed = LimelightSubsystem.getTx()/27d;
-            if(speed < -0.35)
+            if(speed < -0.3)
             {
-                return -0.35;
+                return -0.3;
             }
             return speed;
         }
