@@ -47,12 +47,13 @@ public class TargetAlignRight extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.driveDrainSubsytem.getRobotDrive().driveCartesian(getStrafeRate(), 0, getRotateRate());
+        Robot.driveDrainSubsytem.getRobotDrive().driveCartesian(Robot.driveDrainSubsytem.getRightStrafeRate(), 0, Robot.driveDrainSubsytem.getRotateRate());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
+        
         return (LimelightSubsystem.getTs() > minSkew && LimelightSubsystem.getTx() <  minXOffset && LimelightSubsystem.getTx() > -minXOffset);
     }
 
@@ -67,31 +68,5 @@ public class TargetAlignRight extends Command {
     protected void interrupted() {
     }
 
-    public double getStrafeRate()
-    {
-        if(LimelightSubsystem.getTs() < minSkew)
-        {
-            double speed = LimelightSubsystem.getTs()/90d;
-            if(speed < -alignSpeed)
-            {
-                return -alignSpeed;
-            }
-            return speed;
-        }
-        return -0;
-    }
-
-    public double getRotateRate()
-    {
-        if(LimelightSubsystem.getTx() > 0)
-        {
-            double speed = LimelightSubsystem.getTx()/27d;
-            if(speed > alignSpeed)
-            {
-                return alignSpeed;
-            }
-            return speed;
-        }
-        return 0;
-    }
+   
 }

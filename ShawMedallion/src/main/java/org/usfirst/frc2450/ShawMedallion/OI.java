@@ -105,10 +105,9 @@ public class OI {
         SmartDashboard.putData("PistonUp", new PistonUp());
         SmartDashboard.putData("PistonDown", new PistonDown());
         SmartDashboard.putData("ApproachTarget", new ApproachTarget());
-        SmartDashboard.putData("LineUpRight", new LineUpRight());
         SmartDashboard.putData("TargetSeek", new TargetSeek());
         SmartDashboard.putData("EleUP", new EleUP());
-        SmartDashboard.putData("TargetAlign", new TargetAlign());
+        SmartDashboard.putData("TargetAlign", new TargetAlign("right"));
         SmartDashboard.putData("ElevatorDown", new ElevatorDown());
         SmartDashboard.putData("MoveBananaArms", new MoveBananaArms());
         SmartDashboard.putData("TargetAlignLeft", new TargetAlignLeft());
@@ -117,8 +116,8 @@ public class OI {
         SmartDashboard.putData("ElevatorMid", new ElevatorMid());
         SmartDashboard.putData("ElevatorHigh", new ElevatorHigh());
         SmartDashboard.putData("RunElevator", new RunElevator());
-       SmartDashboard.putData("ElevatorToPosition33", new ElevatorToPosition(33));
-       SmartDashboard.putData("ElevatorToPosition10", new ElevatorToPosition(10));
+        SmartDashboard.putData("ElevatorToPosition33", new ElevatorToPosition(33));
+        SmartDashboard.putData("ElevatorToPosition10", new ElevatorToPosition(10));
         SmartDashboard.putData("DeactivatePanelPiston", new DeactivatePanelPiston());
         SmartDashboard.putData("ActivatePanelPiston", new ActivatePanelPiston());
         SmartDashboard.putData("RightPanelPlaceLow", new RightPanelPlaceLow());

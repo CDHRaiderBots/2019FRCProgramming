@@ -57,6 +57,9 @@ public class DriveDrainSubsytem extends Subsystem {
     private WPI_VictorSPX driveMotor1Spx;
     private WPI_VictorSPX driveMotor3Spx;
     private MecanumDrive canDrive;
+    public double alignSpeed = Robot.limelightSubsystem.alignSpeed;
+    public double minSkew = Robot.limelightSubsystem.minSkew;
+    public double minXOffset = Robot.limelightSubsystem.minXOffset;
     public MecanumDrive getRobotDrive() {
         return canDrive;
     }
@@ -187,6 +190,75 @@ public class DriveDrainSubsytem extends Subsystem {
         canDrive.driveCartesian(driveProportion, 0, 0);
     }
 
+    public double getLeftStrafeRate()
+    {
+        if(LimelightSubsystem.getTs() < minSkew)
+        {
+            double speed = LimelightSubsystem.getTs()/90d;
+            if(speed < -alignSpeed)
+            {
+                return alignSpeed;
+            }
+            return -speed;
+        }
+        return -0;
+    }
 
+    // public double getLeftRotateRate()
+    // {
+    //     if(LimelightSubsystem.getTx() < 0)
+    //     {
+    //         double speed = LimelightSubsystem.getTx()/27d;
+    //         if(speed < -alignSpeed)
+    //         {
+    //             return -alignSpeed;
+    //         }
+    //         return speed;
+    //     }
+    //     return 0;
+    // }
+
+    public double getRightStrafeRate()
+    {
+        if(LimelightSubsystem.getTs() < minSkew)
+        {
+            double speed = LimelightSubsystem.getTs()/90d;
+            if(speed < -alignSpeed)
+            {
+                return -alignSpeed;
+            }
+            return speed;
+        }
+        return -0;
+    }
+
+    // public double getRightRotateRate()
+    // {
+    //     if(LimelightSubsystem.getTx() > 0)
+    //     {
+    //         double speed = LimelightSubsystem.getTx()/27d;
+    //         if(speed > alignSpeed)
+    //         {
+    //             return alignSpeed;
+    //         }
+    //         return speed;
+    //     }
+    //     return 0;
+    // }
+
+    public double getRotateRate()
+    {
+        double speed = LimelightSubsystem.getTx()/27d;
+        if(speed > alignSpeed)
+        {
+            return alignSpeed;
+        }
+        if(speed < -alignSpeed)
+            {
+                return -alignSpeed;
+            }
+        return speed;
+
+    }
 }
 
