@@ -43,6 +43,7 @@ public class TargetAlign extends Command {
     @Override
     protected void initialize() {
         previousTx = LimelightSubsystem.getTx();
+        isValidated = false;
     }
 
     // Called repeatedly when this Command is scheduled to run
