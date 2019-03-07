@@ -55,7 +55,7 @@ public class DriveWithJoysticks extends Command {
     protected void execute() {
         //  Robot.driveDrainSubsytem.takeXboxJoystickInputs(Robot.oi.getXboxController());
 
-         Robot.driveDrainSubsytem.takeDriveJoystickInputs(Robot.oi.getDriveJoystick());
+         Robot.driveDrainSubsytem.takeDriveJoystickInputs(Robot.oi.getJoystick());
 
         //SmartDashboard.putNumber("Gyro Value", Robot.gyroSPI.getAngle());
         //SmartDashboard.putBoolean("Gyro Calibrating", Robot.gyroSPI.isCalibrating());
