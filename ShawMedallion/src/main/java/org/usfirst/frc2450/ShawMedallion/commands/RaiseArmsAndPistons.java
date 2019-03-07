@@ -38,7 +38,7 @@ public class RaiseArmsAndPistons extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        //TODO check piston direction ith this function
+        //TODO check piston direction with this function
         Robot.climbSubsystem.shootDown();
     }
 
@@ -61,7 +61,7 @@ public class RaiseArmsAndPistons extends Command {
     @Override
     protected void end() {
         Robot.climbSubsystem.setBananaArmMotor(0);
-
+        Robot.driveDrainSubsytem.getRobotDrive().driveCartesian(0.1, 0, 0);
     }
 
     // Called when another command which requires one or more of the same
