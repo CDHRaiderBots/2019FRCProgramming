@@ -86,18 +86,9 @@ public class ElevatorToPosition extends Command {
         if (ElevatorSpeed > 1){
             ElevatorSpeed = 1;
         }
-        
-        // if(elevatorUp)
-        // {
+
             Robot.elevatorSubsystem.setElevatorSpeed(ElevatorSpeed);
-        //     //elevatorUp = true;
-        // }
-        // else
-        // {
-        //     double negElevatorSpeed = ElevatorSpeed * -1;
-        //     Robot.elevatorSubsystem.setElevatorSpeed(negElevatorSpeed);
-        //     //elevatorDown = true;
-        // }
+
     }
 
     // Make this return true when this Command no longer needs to run execute()

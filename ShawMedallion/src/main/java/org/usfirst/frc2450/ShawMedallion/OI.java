@@ -132,7 +132,7 @@ public class OI {
         SmartDashboard.putData("RightPanelPlaceLow", new RightPanelPlaceLow());
         SmartDashboard.putData("RightPanelPlaceMid", new RightPanelPlaceMid());
         SmartDashboard.putData("RightPanelPlaceHigh", new RightPanelPlaceHigh());
-        SmartDashboard.putData("RunElevator", new RunElevator());
+    
         SmartDashboard.putData("LeftPanelPlaceLow", new LeftPanelPlaceLow());
         SmartDashboard.putData("LeftPanelPlaceHigh", new LeftPanelPlaceHigh());
         SmartDashboard.putData("LeftPanelPlaceMid", new LeftPanelPlaceMid());
