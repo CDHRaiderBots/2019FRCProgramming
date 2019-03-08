@@ -12,6 +12,7 @@
 package org.usfirst.frc2450.ShawMedallion.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2450.ShawMedallion.Robot;
+import org.usfirst.frc2450.ShawMedallion.subsystems.ClimbSubsystem;
 
 /**
  *
@@ -38,22 +39,25 @@ public class DriveOn extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        setTimeout(5);
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        Robot.climbSubsystem.setPistonWheelMotorSpeed(0.3);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        Robot.climbSubsystem.StopPistonWheelMotor();
     }
 
     // Called when another command which requires one or more of the same

@@ -22,7 +22,7 @@ import org.usfirst.frc2450.ShawMedallion.Robot;
 public class ElevatorToPosition extends Command {
     private double m_speed;
     double P = .3;
-    double I = .005;
+    double I = .1;
     double error = 0;
     double integral = 0;
     boolean elevatorUp = false;
@@ -50,14 +50,18 @@ public class ElevatorToPosition extends Command {
     }
 
     // Called just before this Command runs the first time
-    double targetdistance;
     @Override
     protected void initialize() {
         integral = 0;
         error = 0;
         elevatorUp = false;
-        elevatorUp = targetdistance > Robot.elevatorSubsystem.getEncoder().getDistance();
-        elevatorDown = targetdistance < Robot.elevatorSubsystem.getEncoder().getDistance();
+        elevatorUp = target > Robot.elevatorSubsystem.getEncoder().getDistance();
+        elevatorDown = target < Robot.elevatorSubsystem.getEncoder().getDistance();
+        if(elevatorDown)
+        {
+            P = 0.003;
+            I = 0.05;
+        }
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -102,10 +106,10 @@ public class ElevatorToPosition extends Command {
         // double ElevatorDistance = Robot.elevatorSubsystem.getEncoder().getDistance();
       // return (Robot.elevatorSubsystem.getEncoder().getDistance() < targetdistance + error && Robot.elevatorSubsystem.getEncoder().getDistance() > targetdistance - error);
         if (elevatorUp){
-            return Robot.elevatorSubsystem.getEncoder().getDistance() >= targetdistance;
+            return Robot.elevatorSubsystem.getEncoder().getDistance() >= target;
         }
         
-        return Robot.elevatorSubsystem.getEncoder().getDistance() <= targetdistance;
+        return Robot.elevatorSubsystem.getEncoder().getDistance() <= target;
     }
 
     // Called once after isFinished returns true
