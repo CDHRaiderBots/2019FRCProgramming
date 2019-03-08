@@ -47,6 +47,7 @@ public class RaiseArmsAndPistons extends Command {
     @Override
     protected void execute() {
         Robot.climbSubsystem.setBananaArmMotor(MotorSpeed);
+        Robot.driveDrainSubsytem.getRobotDrive().driveCartesian(0, 0.1, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
