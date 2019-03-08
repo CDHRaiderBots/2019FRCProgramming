@@ -45,7 +45,7 @@ public class DriveOn extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.climbSubsystem.setPistonWheelMotorSpeed(0.3);
+        Robot.driveDrainSubsytem.getRobotDrive().driveCartesian(0, 0.15, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
