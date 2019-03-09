@@ -76,7 +76,15 @@ public class TargetAlign extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return false;
+        if(!rightAlign)
+        {
+        return (LimelightSubsystem.getTs() > Robot.limelightSubsystem.minSkew && 
+        LimelightSubsystem.getTx() < Robot.limelightSubsystem.minXOffset && LimelightSubsystem.getTx() > -Robot.limelightSubsystem.minXOffset);
+        }
+        else
+       {
+        return (LimelightSubsystem.getTs() > Robot.limelightSubsystem.minSkew && LimelightSubsystem.getTx() <  Robot.limelightSubsystem.minXOffset && LimelightSubsystem.getTx() > -Robot.limelightSubsystem.minXOffset); 
+       }
     }
 
     // Called once after isFinished returns true

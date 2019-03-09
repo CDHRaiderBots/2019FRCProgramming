@@ -21,7 +21,7 @@ import org.usfirst.frc2450.ShawMedallion.Robot;
  */
 public class ElevatorToPosition extends Command {
     private double m_speed;
-    double P = .3;
+    double P = .03;
     double I = .1;
     double error = 0;
     double integral = 0;
@@ -59,7 +59,7 @@ public class ElevatorToPosition extends Command {
         elevatorDown = target < Robot.elevatorSubsystem.getEncoder().getDistance();
         if(elevatorDown)
         {
-            P = 0.003;
+            P = 0.001;
             I = 0.05;
         }
     }
@@ -83,7 +83,13 @@ public class ElevatorToPosition extends Command {
          error = target - Robot.elevatorSubsystem.getEncoder().getDistance();
         integral += (error*.02);
         double ElevatorSpeed = (P*error + I*integral);
-        if (ElevatorSpeed > 1){
+        if(elevatorDown)
+        {
+            if (ElevatorSpeed < -0.5){
+                ElevatorSpeed = -0.5;
+            }
+        }
+       else if (ElevatorSpeed > 1){
             ElevatorSpeed = 1;
         }
 
