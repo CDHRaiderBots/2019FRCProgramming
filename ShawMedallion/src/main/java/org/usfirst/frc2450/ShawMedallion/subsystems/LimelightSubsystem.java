@@ -31,7 +31,7 @@ import edu.wpi.first.networktables.NetworkTableInstance;
  */
 public class LimelightSubsystem extends Subsystem {
 
-	public double alignSpeed = 0.3;
+	public double alignSpeed = 0.4;
 	public double minSkew = -5;
 	public double minXOffset = 3;
 

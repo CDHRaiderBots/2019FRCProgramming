@@ -21,8 +21,8 @@ import org.usfirst.frc2450.ShawMedallion.Robot;
  */
 public class ElevatorToPosition extends Command {
     private double m_speed;
-    double P = .3;
-    double I = .005;
+    double P = .03;
+    double I = .1;
     double error = 0;
     double integral = 0;
     boolean elevatorUp = false;
@@ -50,14 +50,18 @@ public class ElevatorToPosition extends Command {
     }
 
     // Called just before this Command runs the first time
-    double targetdistance;
     @Override
     protected void initialize() {
         integral = 0;
         error = 0;
         elevatorUp = false;
-        elevatorUp = targetdistance > Robot.elevatorSubsystem.getEncoder().getDistance();
-        elevatorDown = targetdistance < Robot.elevatorSubsystem.getEncoder().getDistance();
+        elevatorUp = target > Robot.elevatorSubsystem.getEncoder().getDistance();
+        elevatorDown = target < Robot.elevatorSubsystem.getEncoder().getDistance();
+        if(elevatorDown)
+        {
+            P = 0.001;
+            I = 0.05;
+        }
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -79,21 +83,18 @@ public class ElevatorToPosition extends Command {
          error = target - Robot.elevatorSubsystem.getEncoder().getDistance();
         integral += (error*.02);
         double ElevatorSpeed = (P*error + I*integral);
-        if (ElevatorSpeed > 1){
+        if(elevatorDown)
+        {
+            if (ElevatorSpeed < -0.5){
+                ElevatorSpeed = -0.5;
+            }
+        }
+       else if (ElevatorSpeed > 1){
             ElevatorSpeed = 1;
         }
-        
-        // if(elevatorUp)
-        // {
+
             Robot.elevatorSubsystem.setElevatorSpeed(ElevatorSpeed);
-        //     //elevatorUp = true;
-        // }
-        // else
-        // {
-        //     double negElevatorSpeed = ElevatorSpeed * -1;
-        //     Robot.elevatorSubsystem.setElevatorSpeed(negElevatorSpeed);
-        //     //elevatorDown = true;
-        // }
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -102,10 +103,10 @@ public class ElevatorToPosition extends Command {
         // double ElevatorDistance = Robot.elevatorSubsystem.getEncoder().getDistance();
       // return (Robot.elevatorSubsystem.getEncoder().getDistance() < targetdistance + error && Robot.elevatorSubsystem.getEncoder().getDistance() > targetdistance - error);
         if (elevatorUp){
-            return Robot.elevatorSubsystem.getEncoder().getDistance() >= targetdistance;
+            return Robot.elevatorSubsystem.getEncoder().getDistance() >= target;
         }
         
-        return Robot.elevatorSubsystem.getEncoder().getDistance() <= targetdistance;
+        return Robot.elevatorSubsystem.getEncoder().getDistance() <= target;
     }
 
     // Called once after isFinished returns true

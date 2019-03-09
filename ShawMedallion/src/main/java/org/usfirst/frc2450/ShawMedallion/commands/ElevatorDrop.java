@@ -48,7 +48,7 @@ public class ElevatorDrop extends Command {
      setPoint =  Robot.elevatorSubsystem.getEncoder().getDistance() - 4;
     }
 
-    // Called repeatedly when this Command is scheduled to run
+    // Called repeatedly when this Command is schedu    led to run
     @Override
     protected void execute() {
         SmartDashboard.putNumber("Encoder Distance", Robot.elevatorSubsystem.getEncoder().getDistance());

@@ -45,7 +45,7 @@ public class EleUP extends Command {
     protected void initialize() {
         integral = 0;
         error = 0;
-        setPoint = Robot.elevatorSubsystem.getEncoder().getDistance() + 2;
+        setPoint = Robot.elevatorSubsystem.getEncoder().getDistance() + 4;
     }
 
     // Called repeatedly when this Command is scheduled to run
