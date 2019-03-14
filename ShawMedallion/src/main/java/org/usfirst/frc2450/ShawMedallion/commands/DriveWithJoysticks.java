@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.MotorSafety;
 
 import org.usfirst.frc2450.ShawMedallion.OI;
 import org.usfirst.frc2450.ShawMedallion.Robot;
-import com.analog.adis16448.frc.ADIS16448_IMU;
+// import com.analog.adis16448.frc.ADIS16448_IMU;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 
@@ -60,21 +60,21 @@ public class DriveWithJoysticks extends Command {
         //SmartDashboard.putNumber("Gyro Value", Robot.gyroSPI.getAngle());
         //SmartDashboard.putBoolean("Gyro Calibrating", Robot.gyroSPI.isCalibrating());
     
-     SmartDashboard.putNumber("Gyro-X", Robot.imu.getAngleX());
-     SmartDashboard.putNumber("Gyro-Y", Robot.imu.getAngleY());
-     SmartDashboard.putNumber("Gyro-Z", Robot.imu.getAngleZ());
+    //  SmartDashboard.putNumber("Gyro-X", Robot.imu.getAngleX());
+    //  SmartDashboard.putNumber("Gyro-Y", Robot.imu.getAngleY());
+    //  SmartDashboard.putNumber("Gyro-Z", Robot.imu.getAngleZ());
     
-    SmartDashboard.putNumber("Accel-X", Robot.imu.getAccelX());
+    // SmartDashboard.putNumber("Accel-X", Robot.imu.getAccelX());
     
-    SmartDashboard.putNumber("Accel-Y", Robot.imu.getAccelY());
-    SmartDashboard.putNumber("Accel-Z", Robot.imu.getAccelZ());
+    // SmartDashboard.putNumber("Accel-Y", Robot.imu.getAccelY());
+    // SmartDashboard.putNumber("Accel-Z", Robot.imu.getAccelZ());
         
-    SmartDashboard.putNumber("Pitch", Robot.imu.getPitch());
-    SmartDashboard.putNumber("Roll", Robot.imu.getRoll());
-    SmartDashboard.putNumber("Yaw", Robot.imu.getYaw());
+    // SmartDashboard.putNumber("Pitch", Robot.imu.getPitch());
+    // SmartDashboard.putNumber("Roll", Robot.imu.getRoll());
+    // SmartDashboard.putNumber("Yaw", Robot.imu.getYaw());
     
-    SmartDashboard.putNumber("Pressure: ", Robot.imu.getBarometricPressure());
-    SmartDashboard.putNumber("Temperature: ", Robot.imu.getTemperature()); 
+    // SmartDashboard.putNumber("Pressure: ", Robot.imu.getBarometricPressure());
+    // SmartDashboard.putNumber("Temperature: ", Robot.imu.getTemperature()); 
     
     }
     
